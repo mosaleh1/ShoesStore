@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
+    <ScrollView
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <!--
+        Linear Layout is best fit for this design because it vertically alliged.
+
+        if we have a complex design we should use constraint layout
+        -->
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/nameShoeDetailsLabel"
+                style="@style/labelTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/shoe_name" />
+
+            <EditText
+                android:id="@+id/nameShoeDetailsField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@{shoe.name}" />
+
+
+            <TextView
+                android:id="@+id/companyShoeDetailsLabel"
+                style="@style/labelTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/company" />
+
+            <EditText
+                android:id="@+id/companyShoeDetailsField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{shoe.company}" />
+
+
+            <TextView
+                android:id="@+id/shoeSizeShoeDetailsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/shoe_size" />
+
+            <EditText
+                android:id="@+id/shoeSizeShoeDetailsField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={com.udacity.shoestore.Converters.doubleToString(shoe.size)}" />
+
+            <TextView
+                android:id="@+id/descriptionShoeDetailsLabel"
+                style="@style/labelTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/description" />
+
+            <EditText
+                android:id="@+id/descriptionShoeDetailsField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{shoe.description}" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center">
+
+
+                <Button
+                    android:id="@+id/action_cancel_btn_ShoeDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:text="@string/cancel" />
+
+                <Button
+                    android:id="@+id/action_save_btn_ShoeDetail"
+                    style="@style/primaryButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="6dp"
+                    android:text="@string/save" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>
