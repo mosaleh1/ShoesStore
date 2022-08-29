@@ -6,6 +6,7 @@ import android.view.*
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.findNavController
@@ -20,7 +21,7 @@ import timber.log.Timber
 
 class ShoeListFragment : Fragment(R.layout.fragment_shoe_list) {
 
-
+    private val shoeViewModel by activityViewModels<MainActivityViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -28,14 +29,10 @@ class ShoeListFragment : Fragment(R.layout.fragment_shoe_list) {
 
 
     private lateinit var binding: FragmentShoeListBinding
-    private lateinit var shoeViewModel: MainActivityViewModel
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentShoeListBinding.bind(view)
-
-        shoeViewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
 
 
         shoeViewModel.shoeListLiveData.observe(viewLifecycleOwner) { shoes ->
@@ -81,8 +78,15 @@ class ShoeListFragment : Fragment(R.layout.fragment_shoe_list) {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
-                || super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.logout ->{
+                val action = ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment()
+                findNavController().navigate(action)
+                return true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onResume() {

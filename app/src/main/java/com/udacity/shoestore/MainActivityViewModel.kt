@@ -36,6 +36,5 @@ class MainActivityViewModel() : ViewModel() {
     fun add(shoe: Shoe) {
         Log.d(TAG, "add: $shoe.name $shoe.size $shoe.company $shoe.description")
         _shoeListLiveData.postValue(shoeList.plus(shoe))
-        _shoeListLiveData.postValue(shoeList.plus(shoe))
     }
 }

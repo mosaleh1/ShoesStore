@@ -23,7 +23,7 @@
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="@{shoe.name}" />
+                android:text="@={shoe.name}" />
 
 
             <TextView
@@ -55,7 +55,7 @@
                 android:id="@+id/companyShoeDetailsField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{shoe.company}" />
+                android:text="@={shoe.company}" />
 
 
             <TextView
@@ -69,6 +69,7 @@
                 android:id="@+id/shoeSizeShoeDetailsField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:text="@={com.udacity.shoestore.Converters.doubleToString(shoe.size)}" />
 
             <TextView
@@ -83,7 +84,7 @@
                 android:id="@+id/descriptionShoeDetailsField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{shoe.description}" />
+                android:text="@={shoe.description}" />
 
 
             <LinearLayout
