@@ -26,15 +26,11 @@ class ShoeListFragment : Fragment(R.layout.fragment_shoe_list) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
-
-
     private lateinit var binding: FragmentShoeListBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentShoeListBinding.bind(view)
-
-
         shoeViewModel.shoeListLiveData.observe(viewLifecycleOwner) { shoes ->
             Timber.d("onViewCreated: Got some data ${shoes.size}")
             shoes.forEach { shoe ->

@@ -12,11 +12,9 @@ import timber.log.Timber
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         Timber.plant(Timber.DebugTree())
         val binding = ActivityMainBinding.inflate(layoutInflater)
-        //setSupportActionBar(binding.toolbar)
-
+        setContentView(binding.root)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

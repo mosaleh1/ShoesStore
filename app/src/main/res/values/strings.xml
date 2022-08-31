@@ -11,4 +11,7 @@
     <string name="logout">Logout</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+    <string name="shoe_e_store">shoe E store</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="next">Next</string>
 </resources>

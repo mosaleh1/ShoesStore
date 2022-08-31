@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+<!--
+     - here I should use CoordinatorLayout it will git me flexible
+     and animate the FAB and many other good features but I won't use any of these
+     so I choose to use Constraint layout.
+       I doesn't matter which ViewGroup to use any View can lead to the same results.
+  -->
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
